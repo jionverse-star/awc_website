@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사례 상세 - AWC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+
+<body class="case-study-page">
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AWC</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#hero">intro</a></li>
+                    <li><a href="team.html">team</a></li>
+                    <li><a href="cases.html">case study</a></li>
+                    <li><a href="service.html" class="active">service</a></li>
+                    <li><a href="#">blog</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Unified Page Intro -->
+        <section class="page-intro">
+            <h1>Case Study</h1>
+            <p>AWC는 실제 생산성 개선 기대 수치(업무 리소스 감소율, 인건비 절감 기대치)를 명확히 제시합니다.<br>
+                아래 케이스 & 시나리오들을 보시면 현재 회사 업무의 생산성 개선 가능성 힌트를 찾으실 수 있습니다.</p>
+            <div class="page-intro-cta">
+                <a href="https://drive.google.com/file/d/1H1wDURA8ulfivrgc4PTyYwtHs6izK48d/view?usp=sharing"
+                    target="_blank" class="btn btn-primary">실제 리포트 보기</a>
+            </div>
+        </section>
+
+        <!-- Horizontal Tab Navigation -->
+        <div class="tab-nav-container">
+            <div class="tab-nav">
+                <button class="tab-btn active case-tab" data-case="precision">(주) OO정밀</button>
+                <button class="tab-btn case-tab" data-case="note">(주) OOO노트</button>
+                <button class="tab-btn case-tab" data-case="flow">(주) OO플로우</button>
+                <button class="tab-btn case-tab" data-case="wave">(주) OOO웨이브</button>
+            </div>
+        </div>
+
+        <div class="content-layout">
+
+
+            <!-- Content Area -->
+            <div class="case-study-content" id="caseContent">
+                <!-- Data will be injected here via JS OR rendered statically for the first tab -->
+                <div class="case-detail-view active" id="case-precision">
+                    <!-- Headings are hidden via CSS, but kept for SEO/accessibility -->
+                    <h1>Case Study</h1>
+                    <!-- Summary Info -->
+                    <div class="case-summary-grid">
+                        <div class="info-row">
+                            <span class="info-label">기업명</span>
+                            <span class="info-value">(주) OO정밀</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">사업 영역</span>
+                            <span class="info-value">산업용 금속 부품 제조 (B2B 주문제작)</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">회사 규모</span>
+                            <span class="info-value">22명</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">조직 구성</span>
+                            <span class="info-value">영업팀 (4) / 생산관리팀 (6) / 품질관리팀 (4) / 구매·자재팀 (3) / 경영지원팀 (5)</span>
+                        </div>
+                    </div>
+
+                    <!-- Metric Badges -->
+                    <div class="metrics-container">
+                        <div class="comparison-grid">
+                            <div class="comparison-card before">
+                                <span class="c-label">AS-IS (도입 전 월 업무 비용)</span>
+                                <span class="c-value">620시간</span>
+                            </div>
+                            <div class="comparison-card after">
+                                <span class="c-label">TO-BE (도입 후 예상 월 업무 비용)</span>
+                                <span class="c-value">245시간</span>
+                            </div>
+                        </div>
+
+                        <div class="metrics-summary-bar">
+                            <div class="metric-stat">
+                                <span class="ms-label">총 생산성 개선율</span>
+                                <span class="ms-value highlight">60%</span>
+                            </div>
+
+                            <div class="metric-stat">
+                                <span class="ms-label">월 절감 비용</span>
+                                <span class="ms-value">940만원</span>
+                            </div>
+                            <div class="metric-stat">
+                                <span class="ms-label">ROI (연)</span>
+                                <span class="ms-value highlight">1074%</span>
+                            </div>
+                            <div class="metric-stat">
+                                <span class="ms-label">BEP</span>
+                                <span class="ms-value">1.1개월</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Comparison Table -->
+                    <div class="table-responsive">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>부서명</th>
+                                    <th>부서 핵심 업무</th>
+                                    <th>업무 설명</th>
+                                    <th>업무 흐름 구성</th>
+                                    <th>월 업무 소요 시간</th>
+                                    <th>도입 후 워크플로우</th>
+                                    <th>도입 후 월 업무 시간</th>
+                                    <th>생산성 개선 지수</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>영업팀 (4)</td>
+                                    <td>신규 견적 요청(RFQ) 대응</td>
+                                    <td>고객사로부터 도면·사양서를 받아 견적 산출 및 회신하는 핵심 매출 업무</td>
+                                    <td>고객 이메일로 RFQ 수신 -> 도면(PDF/STEP) 다운로드 -> 파일명 규칙에 맞게 정리 -> 생산관리팀에 제조 가능 여부 문의 ->
+                                        구매·자재팀에 원자재 단가 요청 -> 과거 유사 견적 엑셀 검색 -> 신규 견적 엑셀 작성 -> PDF 변환 -> 이메일 회신 -> CRM 반영
+                                        업데이트</td>
+                                    <td>120시간 / 300만원</td>
+                                    <td>RFQ 메일 자동 감지 -> AI Agent가 견적 맥락 파악 및 도면/사양 자동 분류 -> 내부 단가 정책 및 견적 정책 조회/반영 -> 견적
+                                        초안서 및 개인화 답변 자동 생성 -> 담당자 검토 승인 -> 컨펌된 최종 견적서 및 메일 자동 발송 -> CRM 자동 업데이트</td>
+                                    <td>20시간 / 50만원</td>
+                                    <td class="highlight-red">85% 절감 / 월 250만원 절감</td>
+                                </tr>
+                                <tr>
+                                    <td>생산관리팀 (6)</td>
+                                    <td>생산 일정 수립 및 조정 관리</td>
+                                    <td>수주 물량에 맞춰 설비, 인력, 납기를 고려해 생산 일정을 수립·관리하는 업무</td>
+                                    <td>영업팀 수주 정보 수신 -> 현재 생산 계획 확인 -> 현장 설비 가동률 확인 -> 기존 일정 및 현장 상황과 충돌 여부 확인 후 영업팀께 요청
+                                        납품일 및 수량 조정 -> 영업팀 조정 컨펌 후 생산 계획 및 가동률 최신 업데이트 -> 변경 내용 현장 공유</td>
+                                    <td>200시간 / 500만원</td>
+                                    <td>영업팀 문의 맥락 Ai agent 자동 파악 (일정/수량 등) -> agent 내부 자료 파악 (생산계획/납품일정/생산케파/가동률 등) ->
+                                        ai agent 주요 체크 포인트 정리 및 상황 브리핑 보고 -> 담당자 체크 후 영업팀께 조정 요청 -> 컨펌 후 내부 자료 최신 업데이트
+                                        -> ai agent 생산 계획 및 출하 일정, 가동률 등 생산 관련 변경 내용 유관 부서 (현장/품질관리 등) 공유 메일 자동 작성 및 발신
+                                    </td>
+                                    <td>120시간 / 300만원</td>
+                                    <td class="highlight-red">40% 절감 / 월 200만원 절감</td>
+                                </tr>
+                                <tr>
+                                    <td>품질관리팀 (4)</td>
+                                    <td>불량 분석 및 품질 리포트 작성</td>
+                                    <td>생산 중 발생한 불량을 분석하고 일/주/월간 품질 리포트 작성</td>
+                                    <td>현장 불량 생산품 데이터 수집 -> 해당 데이터 엑셀 정리 -> 불량 유형 분류 -> 원인 분석 -> 일/주/월간 리포트 작성 및 배포</td>
+                                    <td>60시간 / 150만원</td>
+                                    <td>현장 불량 생산품 데이터 수집 -> 해당 데이터 엑셀 정리 -> 원인 분석 -> ai agent의 일/주/월간 리포트 자동 작성 및 배포
+                                    </td>
+                                    <td>25시간 / 62만원</td>
+                                    <td class="highlight-red">60% 절감 / 월 90만원 절감</td>
+                                </tr>
+                                <tr>
+                                    <td>구매·자재팀 (3)</td>
+                                    <td>원자재 발주 및 재고 관리</td>
+                                    <td>필요 자재를 현장/영업 상황 등에 따라 적시에 발주하고 재고를 관리</td>
+                                    <td>생산 계획 확인 -> 재고 엑셀 확인 -> 재고 소진 추이 파악 -> 자재 부족 시기 추론 -> 거래처 이메일 발주 -> 거래처의 납기 일정 및
+                                        물량 확인 -> 입고 후 재고 데이터 업데이트</td>
+                                    <td>160시간 / 400만원</td>
+                                    <td>ai agent 생산 계획 자료 / 현장 자료 (가동률 등) 실시간 업데이트 확인 -> 필요 자재 자동 계산 후 재고 소진 흐름 자동 파악 및
+                                        발주 메일 초안 자동 생성 -> 담당자 검토 승인 -> 거래처 이메일 자동 발송</td>
+                                    <td>60시간 / 150만원</td>
+                                    <td class="highlight-red">60% 절감 / 월 250만원 절감</td>
+                                </tr>
+                                <tr>
+                                    <td>경영지원팀 (5)</td>
+                                    <td>증빙 서류 관리 및 지출 결의 업무</td>
+                                    <td>전 부서에서 발생하는 영수증 및 세금계산서를 수거하여 ERP에 입력하고 지출 내역을 정리 및 집행</td>
+                                    <td>종이 영수증 / 메일 영수증 수거 -> 카테고리별 분류 -> ERP 시스템 수동 입력 -> 지출 결의서 작성 -> 대표자 결재 요청 -> 집행
+                                    </td>
+                                    <td>80시간 / 200만원</td>
+                                    <td>모바일 촬영 또는 메일 수신 시 AI OCR이 항목/금액 자동 추출 -> ERP 데이터 자동 등록 및 임시 저장 -> 담당자 검토 승인 ->
+                                        자동 지출결의서 작성 -> 대표자 결재 요청 -> 집행</td>
+                                    <td>20시간 / 50만원</td>
+                                    <td class="highlight-red">75% 절감 / 월 150만원 절감</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AWC (AI Workflow Consulting). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <a href="contact.html" class="floating-cta">우리 조직 생산성 진단하기</a>
+</body>
+
+</html>

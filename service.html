@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>서비스 상세 - AWC</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+
+<body class="service-detail-page">
+
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">AWC</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html#hero">intro</a></li>
+                    <li><a href="team.html">team</a></li>
+                    <li><a href="cases.html">case study</a></li>
+                    <li><a href="service.html" class="active">service</a></li>
+                    <li><a href="#">blog</a></li>
+                    <li><a href="contact.html" class="btn btn-primary">contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Unified Page Intro -->
+        <section class="page-intro">
+            <h1>Service Details</h1>
+            <p>AWC는 조직의 생산성 개선 기회를 포착하고 실제 기대 효과를 숫자로 제시합니다.<br>
+                아래 서비스 유형별 상세 안내를 통해 최적화된 도입 방향을 확인해 보세요.</p>
+        </section>
+
+        <!-- Horizontal Tab Navigation -->
+        <div class="tab-nav-container">
+            <div class="tab-nav">
+                <button class="tab-btn active service-tab" data-service="consulting">컨설팅형</button>
+                <button class="tab-btn service-tab" data-service="development">개발의뢰형</button>
+                <button class="tab-btn service-tab" data-service="training">기업 역량 교육 / 강의</button>
+                <button class="tab-btn service-tab" data-service="maintenance">유지 보수 및 생산성 자문</button>
+            </div>
+        </div>
+
+        <div class="content-layout">
+
+            <!-- Content Area -->
+            <div class="service-content" id="serviceContent">
+                <div class="service-view active" id="view-consulting">
+                    <h1>컨설팅형 Service</h1>
+
+                    <section class="service-intro-section">
+                        <h3>컨설팅형 서비스는</h3>
+                        <p>조직별 전반적인 업무, 자산, 협업, 리소스 현황을 파악하여 조직 벡터·자산화·협업·업무 자동화 등 각 영역에 대한 생산성 분석을 합니다. <br>
+                            이를 바탕으로 숨겨진 생산성 개선 기회를 포착하고 AI 업무 자동화 도입이 적절한 영역에 대한 제안을 합니다.<br>
+                            제안을 통해 실제 생산성 개선 기대 수치 및 효과 (업무 리소스 감소 / 인건비 절감 기대치)를 숫자로 명확히 제시합니다.</p>
+                    </section>
+
+                    <section class="process-section">
+                        <h2>PROCESS</h2>
+                        <div class="process-container">
+                            <h3>컨설팅형 프로세스</h3>
+                            <div class="process-map-v2">
+                                <!-- Row 1: Process Flow Boxes -->
+                                <div class="process-flow-row">
+                                    <div class="process-step-v2">
+                                        <div class="step-box">상담 및 계약</div>
+                                    </div>
+                                    <div class="step-arrow-v2">→</div>
+                                    <div class="process-step-v2">
+                                        <div class="step-box">기업 생산성 분석 시작<br>(~2w)</div>
+                                    </div>
+                                    <div class="step-arrow-v2">→</div>
+                                    <div class="process-step-v2">
+                                        <div class="step-box">생산성 개선 분석 및 리포트 작성<br>(~2w)</div>
+                                    </div>
+                                    <div class="step-arrow-v2">→</div>
+                                    <div class="process-step-v2">
+                                        <div class="step-box">과업 완료 및 개선 제안 리포트 제출<br>및 종료</div>
+                                    </div>
+                                    <div class="step-arrow-v2">→</div>
+                                    <div class="process-step-v2 highlight">
+                                        <div class="step-box">자동화 개발 계약</div>
+                                    </div>
+                                </div>
+
+                                <!-- Row 2: Details and Deliverables -->
+                                <div class="process-details-row">
+                                    <!-- Column 1: 상담 및 계약 -->
+                                    <div class="detail-column">
+                                        <div class="deliverable-box">
+                                            <div class="detail-label">결과물</div>
+                                            <div class="detail-content">· nda 포함 계약서</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Arrow spacer -->
+                                    <div class="arrow-spacer"></div>
+
+                                    <!-- Column 2: 기업 생산성 분석 시작 -->
+                                    <div class="detail-column">
+                                        <div class="detail-box">
+                                            <div class="detail-label">세부 내용</div>
+                                            <div class="detail-content">
+                                                1. 기초 자료 작성 요청<br>
+                                                2. 작성 자료 바탕 팀당 심층 인터뷰<br>
+                                                3. 조직화 관련 파악<br>
+                                                4. 업무 방식 관련 파악<br>
+                                                5. 협업 방식 관련 파악<br>
+                                                6. 업무별 효율 및 애로사항 파악
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Arrow spacer -->
+                                    <div class="arrow-spacer"></div>
+
+                                    <!-- Column 3: 생산성 개선 분석 및 리포트 작성 -->
+                                    <div class="detail-column">
+                                        <div class="detail-box">
+                                            <div class="detail-label">세부 내용</div>
+                                            <div class="detail-content">
+                                                파악 내용 토대 생산성 개선 영역 분석
+                                            </div>
+                                        </div>
+                                        <div class="deliverable-box">
+                                            <div class="detail-label">결과물</div>
+                                            <div class="detail-content">· 생산성 개선 제안 리포트(PDF)</div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Empty columns for remaining steps -->
+                                    <div class="arrow-spacer"></div>
+                                    <div class="detail-column"></div>
+                                    <div class="arrow-spacer"></div>
+                                    <div class="detail-column"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section class="deliverables-section">
+                        <h2>결과물</h2>
+                        <p>컨설팅형 서비스는 조직의 전반적인 업무 / 자산화 / 협업 방식의 현황과 생산성에 대해 분석하고 파악합니다.<br>
+                            이를 통해 AI 자동화 도입을 통한 업무 생산성 개선 제안을 포커싱한 '기업 생산성 컨설팅 리포트'를 결과물로 제공합니다.</p>
+                        <div class="cta-center">
+                            <a href="https://drive.google.com/file/d/1H1wDURA8ulfivrgc4PTyYwtHs6izK48d/view?usp=sharing"
+                                target="_blank" class="btn btn-dark">실제 리포트 보기</a>
+                        </div>
+                    </section>
+
+                    <section class="pricing-section">
+                        <h2>가격 정책</h2>
+                        <div class="pricing-grid">
+                            <div class="price-card">
+                                <span class="p-tier">5인 미만</span>
+                                <span class="p-value">300만원 ~<br><small>(vat 별도)</small></span>
+                            </div>
+                            <div class="price-separator"></div>
+                            <div class="price-card">
+                                <span class="p-tier">15인 미만</span>
+                                <span class="p-value">500만원 ~<br><small>(vat 별도)</small></span>
+                            </div>
+                            <div class="price-separator"></div>
+                            <div class="price-card">
+                                <span class="p-tier">25인 미만</span>
+                                <span class="p-value">700만원 ~<br><small>(vat 별도)</small></span>
+                            </div>
+                            <div class="price-separator"></div>
+                            <div class="price-card">
+                                <span class="p-tier">25인 이상</span>
+                                <span class="p-value">Let's Talk</span>
+                            </div>
+                            <div class="price-cta">
+                                <a href="contact.html" class="btn btn-dark">문의하기</a>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 AWC (AI Workflow Consulting). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <a href="contact.html" class="floating-cta">우리 조직 생산성 진단하기</a>
+</body>
+
+</html>
