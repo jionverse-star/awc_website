@@ -326,7 +326,7 @@ const serviceViewData = {
             show: true,
             description: "요구사항에 맞는 자동화 워크플로우를 제공하며 해당 워크플로우 납품에 대한 납품 확인 및 온보딩 서류를 결과물로 제공드립니다.",
             buttonText: "예시 양식 확인하기",
-            buttonUrl: "https://www.notion.so/OOOO-AI-2cc9000843828006a11ef97849999c83?source=copy_link"
+            buttonUrl: "https://unmarred-quark-f2a.notion.site/OOOO-AI-2cc9000843828006a11ef97849999c83?source=copy_link"
         },
         pricing: [
             ["Custom", "Let's Talk"]
