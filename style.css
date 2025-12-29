@@ -1710,10 +1710,19 @@ footer {
 .tab-nav-container {
     border-bottom: 2px solid var(--border-light);
     margin-bottom: 4rem;
-    position: sticky;
-    top: 0;
     background: white;
-    z-index: 100;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar for tab navigation */
+.tab-nav-container::-webkit-scrollbar {
+    display: none;
+}
+
+.tab-nav-container {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 .tab-nav {
