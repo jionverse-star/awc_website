@@ -277,9 +277,9 @@ const serviceViewData = {
         processTitle: "개발의뢰형 프로세스",
         processType: "v3",
         processStepsV3: [
-            { title: "기초 상담 및 계약", details: ["NDA 포함 용역 계약을 체결합니다."] },
+            { title: "기초 상담 및 계약", details: ["NDA 포함 용역 계약 체결"] },
             { title: "상세 요구 분석 및<br>업무 협약", details: ["상세 요구사항을 파악하고 개발 범위를 확정합니다."] },
-            { title: "개발 및 POC", details: ["자동화 프로세스 개발 및 성능을 확인합니다.", "납품 확인 및 온보딩 문서를 준비합니다."] },
+            { title: "개발 및 POC", details: ["자동화 프로세스 개발 및 성능을 확인합니다.", "납품 확인 및 온보딩 문서 준비"] },
             { title: "납품", details: ["최종 워크플로우를 납품하고 온보딩을 진행합니다."] }
         ],
         deliverables: {
