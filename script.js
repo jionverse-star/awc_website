@@ -255,7 +255,7 @@ const serviceViewData = {
             { title: "개선 도입 계약", details: ["협업 생산성 영역 / 업무 자동화 영역, 각 영역에 대한 개선 도입 여부를 결정하고 계약합니다."] },
             { title: "구축 & 개발", details: ["영역별 시스템 구축을 시작합니다.", "<strong>협업 생산성 영역</strong>: 산업 및 업무 방식, 사내 환경에 적합한 협업 도구 조합 설정 / 도구 규칙 및 프로세스 매뉴얼 구축", "<strong>AI agent 업무 자동화 영역</strong>: 개별 업무 흐름 파악 및 AI 자동화 워크플로우 개발 / 워크플로우 사용 매뉴얼 구축"] },
             { title: "도입", details: ["회사에 적용 및 도입합니다."] },
-            { title: "체화 헬프<br>(워크숍)", details: ["새로 도입된 협업 도구 및 규칙, AI 워크플로우가 회사에 원활히 정착될 수 있도록 교육 및 주기적 워크숍을 진행합니다."] }
+            { title: "워크숍", details: ["새로 도입된 협업 도구 및 규칙, AI 워크플로우가 회사에 원활히 정착될 수 있도록 교육 및 주기적 워크숍을 진행합니다."] }
         ],
         deliverables: {
             show: true,
@@ -681,7 +681,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const serviceType = urlParams.get('service');
 
     // Handle Cases Page Tabs
-    if (caseType && window.location.pathname.includes('cases.html')) {
+    const casesContainer = document.querySelector('.case-tab');
+    if (caseType && casesContainer) {
         const targetTab = document.querySelector(`.case-tab[data-case="${caseType}"]`);
         if (targetTab) {
             targetTab.click();
@@ -689,7 +690,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Handle Service Page Tabs
-    if (window.location.pathname.includes('service.html')) {
+    const serviceContainer = document.querySelector('.service-tab');
+    if (serviceContainer) {
         if (serviceType) {
             const targetTab = document.querySelector(`.service-tab[data-service="${serviceType}"]`);
             if (targetTab) {
