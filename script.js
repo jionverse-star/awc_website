@@ -25,6 +25,10 @@ window.addEventListener('load', () => {
     if (serviceType && window.location.pathname.includes('service.html')) {
         const targetTab = document.querySelector(`.service-tab[data-service="${serviceType}"]`);
         if (targetTab) targetTab.click();
+    } else if (window.location.pathname.includes('service.html')) {
+        // Trigger initial view update for the active tab (consulting by default)
+        const activeTab = document.querySelector('.service-tab.active');
+        if (activeTab) updateServiceView(activeTab.dataset.service);
     }
 });
 
@@ -166,6 +170,9 @@ const caseData = {
     }
 };
 
+// Continue with rest of script.js...
+// (케이스 탭 등 나머지 코드는 기존과 동일)
+
 function updateCaseContent(caseKey) {
     const data = caseData[caseKey];
     if (!data) return;
@@ -259,34 +266,19 @@ const serviceViewData = {
         intro: "컨설팅형 서비스는",
         desc: "조직별 전반적인 업무, 자산, 협업, 리소스 현황을 파악하여 조직 벡터·자산화·협업·업무 자동화 등 각 영역에 대한 생산성 분석을 합니다. 이를 바탕으로 숨겨진 생산성 개선 기회를 포착하고 AI 업무 자동화 도입이 적절한 영역에 대한 제안을 합니다.<br>제안을 통해 실제 생산성 개선 기대 수치 및 효과 (업무 리소스 감소 / 인건비 절감 기대치)를 숫자로 명확히 제시합니다.",
         processTitle: "컨설팅형 프로세스",
-        processType: "v2", // Use the new two-row layout
-        processSteps: [
-            { box: "상담 및 계약" },
-            { box: "기업 생산성 분석 시작<br>(~2w)" },
-            { box: "생산성 개선 분석 및 리포트 작성<br>(~2w)" },
-            { box: "과업 완료 및 개선 제안 리포트 제출<br>및 종료" },
-            { box: "자동화 개발 계약", highlight: true }
-        ],
-        processDetails: [
-            {
-                type: "deliverable",
-                content: "· nda 포함 계약서"
-            },
-            {
-                type: "detail",
-                content: "1. 기초 자료 작성 요청<br>2. 작성 자료 바탕 팀당 심층<br>&nbsp;&nbsp;&nbsp;인터뷰<br>3. 조직화 관련 파악<br>4. 업무 방식 관련 파악<br>5. 협업 방식 관련 파악<br>6. 업무별 효율 및 애로사항 파악"
-            },
-            {
-                type: "both",
-                detail: "파악 내용 토대 생산성 개선 영역<br>분석",
-                deliverable: "· 생산성 개선 제안 리포트 (pdf)"
-            },
-            null, // 과업 완료
-            null  // 자동화 개발 계약
+        processType: "v3", // 7-step Title+Detail layout
+        processStepsV3: [
+            { title: "상담 및 계약", details: ["의뢰 회사의 니즈 & 요구사항 & 상황 등을 파악합니다.", "컨설팅 범위 및 방향에 대해 조율 후 견적 & 계약합니다."] },
+            { title: "파악 및 진단", details: ["회사의 협업 도구 & 사용 방식 & 개별 업무 흐름 등을 상세히 파악 및 분석합니다."] },
+            { title: "분석 결과 &<br>개선 제안 리포트", details: ["분석한 내용을 바탕으로 영역별 개선안을 제안합니다."] },
+            { title: "개선 도입 계약", details: ["협업 생산성 영역 / 업무 자동화 영역, 각 영역에 대한 개선 도입 여부를 결정하고 계약합니다."] },
+            { title: "구축 & 개발", details: ["영역별 시스템 구축을 시작합니다.", "<strong>협업 생산성 영역</strong>: 산업 및 업무 방식, 사내 환경에 적합한 협업 도구 조합 설정 / 도구 규칙 및 프로세스 매뉴얼 구축", "<strong>AI agent 업무 자동화 영역</strong>: 개별 업무 흐름 파악 및 AI 자동화 워크플로우 개발 / 워크플로우 사용 매뉴얼 구축"] },
+            { title: "도입", details: ["회사에 적용 및 도입합니다."] },
+            { title: "체화 헬프<br>(워크숍)", details: ["새로 도입된 협업 도구 및 규칙, AI 워크플로우가 회사에 원활히 정착될 수 있도록 교육 및 주기적 워크숍을 진행합니다."] }
         ],
         deliverables: {
             show: true,
-            description: "컨설팅형 서비스는 조직의 전반적인 업무 / 자산화 / 협업 방식의 현황과 생산성에 대해 분석하고 파악합니다. 이를 통해 AI 자동화 도입을 통한 업무 생산성 개선 제안을 포커싱한 '기업 생산성 컨설팅 리포트'를 결과물로 제공합니다.",
+            description: "컨설팅형 서비스는 조직의 전반적인 업무 / 자산화 / 협업 방식의 현황과 생산성에 대해 파악하고 비효율 요인을 분석합니다. 분석/진단한 내용을 바탕으로 최적의 업무 체계 (협업 도구 조합 및 협업 체계 & AI 업무 자동화 도입이 적절한 업무 영역) 도입을 제안을 합니다.",
             buttonText: "실제 리포트 보기",
             buttonUrl: "https://drive.google.com/file/d/1H1wDURA8ulfivrgc4PTyYwtHs6izK48d/view?usp=sharing"
         },
@@ -302,25 +294,12 @@ const serviceViewData = {
         intro: "개발의뢰형 서비스는",
         desc: "고객의 구체적인 요구 사항이 있는 업무 영역에 대한 순수 자동화 인프라 세팅 및 개발을 해드리는 서비스 입니다.",
         processTitle: "개발의뢰형 프로세스",
-        processType: "v2",
-        processSteps: [
-            { box: "기초 상담 및 계약" },
-            { box: "상세 요구 분석 및<br>업무 협약" },
-            { box: "개발 및 POC" },
-            { box: "납품", highlight: true }
-        ],
-        processDetails: [
-            {
-                type: "deliverable",
-                content: "· 용역계약서"
-            },
-            null, // 상세 요구 분석
-            {
-                type: "both",
-                detail: "POC 및 요구 수행 성능 확인",
-                deliverable: "1. 자동화 프로세스<br>2. 납품 확인 및 온보딩 문서"
-            },
-            null // 납품
+        processType: "v3",
+        processStepsV3: [
+            { title: "기초 상담 및 계약", details: ["NDA 포함 용역 계약을 체결합니다."] },
+            { title: "상세 요구 분석 및<br>업무 협약", details: ["상세 요구사항을 파악하고 개발 범위를 확정합니다."] },
+            { title: "개발 및 POC", details: ["자동화 프로세스 개발 및 성능을 확인합니다.", "납품 확인 및 온보딩 문서를 준비합니다."] },
+            { title: "납품", details: ["최종 워크플로우를 납품하고 온보딩을 진행합니다."] }
         ],
         deliverables: {
             show: true,
@@ -387,15 +366,39 @@ function updateServiceView(key) {
 
     // Process Section - Handle v1 and v2 layouts
     const processSection = view.querySelector('.process-section');
-    if (data.steps || data.processSteps) {
+    if (data.steps || data.processSteps || data.processStepsV3) {
         processSection.style.display = 'block';
         view.querySelector('.process-container h3').textContent = data.processTitle;
         const processContainer = view.querySelector('.process-container');
 
         let processHtml = '';
 
+        // V3 Layout (7-step Title+Detail layout)
+        if (data.processType === 'v3' && data.processStepsV3) {
+            processHtml = '<div class="process-grid-new">';
+            data.processStepsV3.forEach((step, i) => {
+                const stepHtml = `
+                    <div class="${step.isNext ? 'process-column-next' : 'process-column'}">
+                        ${step.isNext ? '<div class="next-arrow-down">↓</div>' : ''}
+                        <div class="${step.isNext ? 'process-column' : ''}">
+                            <div class="step-title-box">${step.title}</div>
+                            <div class="step-detail-box">
+                                <ul>
+                                    ${step.details.map(d => `<li>${d}</li>`).join('')}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                processHtml += stepHtml;
+                if (!step.isNext && i < data.processStepsV3.length - 1 && !data.processStepsV3[i + 1].isNext) {
+                    processHtml += '<div class="process-arrow-new">→</div>';
+                }
+            });
+            processHtml += '</div>';
+        }
         // V2 Layout (new two-row layout)
-        if (data.processType === 'v2' && data.processSteps) {
+        else if (data.processType === 'v2' && data.processSteps) {
             processHtml = '<div class="process-map-v2">';
 
             // Row 1: Process Flow
@@ -474,7 +477,7 @@ function updateServiceView(key) {
         }
 
         // Find or create the process map container
-        let processMapContainer = processContainer.querySelector('.process-map, .process-map-v2');
+        let processMapContainer = processContainer.querySelector('.process-map, .process-map-v2, .process-grid-new');
         if (processMapContainer) {
             processMapContainer.outerHTML = processHtml;
         } else {
@@ -666,4 +669,26 @@ if (mobileMenuBtn && navLinks) {
             mobileMenuBtn.classList.remove('active');
         });
     });
+}
+
+// AI Comparison Tabs
+function openTab(evt, tabName) {
+    // Hide all tab panels
+    const tabPanels = document.querySelectorAll('.tab-panel');
+    tabPanels.forEach(panel => panel.classList.remove('active'));
+
+    // Deactivate all tab buttons
+    const tabButtons = document.querySelectorAll('.tab-item');
+    tabButtons.forEach(btn => btn.classList.remove('active'));
+
+    // Show selected tab
+    const targetPanel = document.getElementById(tabName);
+    if (targetPanel) {
+        targetPanel.classList.add('active');
+    }
+
+    // Activate clicked button
+    if (evt && evt.currentTarget) {
+        evt.currentTarget.classList.add('active');
+    }
 }
