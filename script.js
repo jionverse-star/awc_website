@@ -11,26 +11,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Handle URL Parameters for Tabs (Case & Service)
-window.addEventListener('load', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const caseType = urlParams.get('case');
-    const serviceType = urlParams.get('service');
-
-    if (caseType && window.location.pathname.includes('cases.html')) {
-        const targetTab = document.querySelector(`.case-tab[data-case="${caseType}"]`);
-        if (targetTab) targetTab.click();
-    }
-
-    if (serviceType && window.location.pathname.includes('service.html')) {
-        const targetTab = document.querySelector(`.service-tab[data-service="${serviceType}"]`);
-        if (targetTab) targetTab.click();
-    } else if (window.location.pathname.includes('service.html')) {
-        // Trigger initial view update for the active tab (consulting by default)
-        const activeTab = document.querySelector('.service-tab.active');
-        if (activeTab) updateServiceView(activeTab.dataset.service);
-    }
-});
+// Move to bottom of file after all function definitions
 
 // FAQ Accordion
 document.querySelectorAll('.faq-question').forEach(button => {
@@ -692,3 +673,37 @@ function openTab(evt, tabName) {
         evt.currentTarget.classList.add('active');
     }
 }
+
+// Handle URL Parameters and Initial Content State
+document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const caseType = urlParams.get('case');
+    const serviceType = urlParams.get('service');
+
+    // Handle Cases Page Tabs
+    if (caseType && window.location.pathname.includes('cases.html')) {
+        const targetTab = document.querySelector(`.case-tab[data-case="${caseType}"]`);
+        if (targetTab) {
+            targetTab.click();
+        }
+    }
+
+    // Handle Service Page Tabs
+    if (window.location.pathname.includes('service.html')) {
+        if (serviceType) {
+            const targetTab = document.querySelector(`.service-tab[data-service="${serviceType}"]`);
+            if (targetTab) {
+                targetTab.click();
+            } else {
+                // Fallback to default if param exists but tab not found
+                updateServiceView('consulting');
+            }
+        } else {
+            // No param or default landing: update view for currently active tab
+            const activeTab = document.querySelector('.service-tab.active') || document.querySelector('.service-tab');
+            if (activeTab) {
+                updateServiceView(activeTab.dataset.service);
+            }
+        }
+    }
+});
