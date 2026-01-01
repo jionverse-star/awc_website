@@ -251,7 +251,7 @@ header .btn-primary:hover {
     max-width: var(--container-width);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 3rem;
     align-items: center;
     position: relative;
@@ -264,12 +264,12 @@ header .btn-primary:hover {
 
 .hero h1 {
     font-size: 4rem;
-    /* Increased for stronger impact */
-    line-height: 1.2;
-    margin-bottom: 1.5rem;
+    line-height: 1.25;
+    margin-bottom: 2rem;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
     color: var(--primary-black);
+    word-break: keep-all;
 }
 
 .hero h1 span {
@@ -287,7 +287,6 @@ header .btn-primary:hover {
     color: var(--text-gray);
     margin-bottom: 2rem;
     line-height: 1.8;
-    max-width: 480px;
 }
 
 .hero-cases {
@@ -413,6 +412,16 @@ header .btn-primary:hover {
 
 .pain-points-container {
     text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-gray);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+    word-break: keep-all;
 }
 
 .pain-points-list {
@@ -633,10 +642,11 @@ header .btn-primary:hover {
 }
 
 .main-desc,
-.answer-body p {
-    font-size: 1.125rem;
+.answer-body p,
+.answer-desc {
+    font-size: 1.15rem;
     text-align: center;
-    max-width: 750px;
+    max-width: 850px;
     margin: 0 auto 1.5rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.9);
@@ -1412,6 +1422,7 @@ input[type="range"] {
     background: var(--gray-200);
     outline: none;
     -webkit-appearance: none;
+    appearance: none;
     border-radius: 0;
 }
 
@@ -1884,6 +1895,31 @@ footer {
     position: relative;
 }
 
+.process-grid-7 {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.8rem;
+    align-items: flex-start;
+    padding: 2rem 0;
+    position: relative;
+}
+
+@media (max-width: 1400px) {
+    .process-grid-7 {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+        /* For scrollbar space */
+        gap: 1rem;
+    }
+
+    .process-grid-7 .process-column {
+        min-width: 180px;
+        /* Ensure readability */
+        flex: 0 0 auto;
+    }
+}
+
 .process-column {
     display: flex;
     flex-direction: column;
@@ -2251,10 +2287,75 @@ footer {
 }
 
 .comparison-table td {
-    padding: 1.5rem 1rem;
-    border-bottom: 1px solid var(--border-light);
-    line-height: 1.6;
+    padding: 1rem;
+    border-bottom: 1px solid #eee;
+    text-align: left;
     vertical-align: top;
+    line-height: 1.5;
+}
+
+/* Detailed Process Table */
+.process-table-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 1rem;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.process-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    min-width: 800px;
+    /* Force scroll on small screens */
+}
+
+.process-table th,
+.process-table td {
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid #eee;
+    border-right: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.process-table th {
+    background-color: #f9f9f9;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.process-table td {
+    color: #555;
+    line-height: 1.5;
+}
+
+.process-table td:last-child,
+.process-table th:last-child {
+    border-right: none;
+}
+
+.process-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Phase Column Styling */
+.process-table .phase-col {
+    background-color: #fdfdfd;
+    font-weight: 700;
+    text-align: center;
+    color: #111;
+    width: 12%;
+}
+
+.process-table .week-col {
+    text-align: center;
+    font-weight: 600;
+    color: #333;
+    width: 8%;
 }
 
 .highlight-red {
@@ -3133,3 +3234,200 @@ footer {
         padding-left: 0;
     }
 }
+
+/* Service View Switching */
+.service-view {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.service-view.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Service Accordion Styling */
+.accordion-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    border-top: none;
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--border-light);
+}
+
+.accordion-header {
+    width: 100%;
+    padding: 2rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.accordion-header:hover .accordion-title {
+    color: var(--text-gray);
+}
+
+.accordion-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-black);
+}
+
+.accordion-icon {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--text-dark);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: none;
+    /* Allow full height for dynamic content */
+    transition: max-height 0.6s ease-in;
+}
+
+.accordion-body {
+    padding-bottom: 3rem;
+    padding-top: 1rem;
+}
+
+.service-desc {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+}
+
+.service-subtitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-black);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.service-benefit-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-benefit-list li {
+    font-size: 1.05rem;
+    color: var(--text-gray);
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.service-benefit-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--primary-black);
+}
+
+.tbd-text {
+    color: var(--text-light);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.service-price-block {
+    margin-top: 3rem;
+    padding: 1.5rem;
+    background: var(--bg-gray);
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.price-value {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--primary-black);
+    text-transform: uppercase;
+}
+
+.service-cta {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.service-note {
+    background: var(--bg-gray-50);
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 2rem;
+}
+
+.service-note p {
+    font-size: 0.95rem;
+    color: var(--text-gray);
+    margin-bottom: 0.3rem;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .accordion-title {
+        font-size: 1.2rem;
+    }
+}
+/* Custom Scrollbar for Process Grid & Table */
+.process-grid-7::-webkit-scrollbar,
+.process-table-container::-webkit-scrollbar {
+    height: 8px; /* Height of horizontal scrollbar */
+}
+
+.process-grid-7::-webkit-scrollbar-track,
+.process-table-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.process-grid-7::-webkit-scrollbar-thumb,
+.process-table-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+.process-grid-7::-webkit-scrollbar-thumb:hover,
+.process-table-container::-webkit-scrollbar-thumb:hover {
+    background: #999;
+}
+
+/* Ensure padding for scrollbar */
+.process-grid-7,
+.process-table-container {
+    padding-bottom: 0.5rem;
+}
+

@@ -13,6 +13,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Move to bottom of file after all function definitions
 
+// Accordion Functionality
+document.addEventListener('DOMContentLoaded', () => {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', () => {
+            const accordionItem = header.parentElement;
+            const isActive = accordionItem.classList.contains('active');
+
+            // Close all other accordions
+            document.querySelectorAll('.accordion-item').forEach(item => {
+                item.classList.remove('active');
+                item.querySelector('.accordion-icon').textContent = '+';
+            });
+
+            // Toggle current accordion
+            if (!isActive) {
+                accordionItem.classList.add('active');
+                header.querySelector('.accordion-icon').textContent = '−';
+            }
+        });
+    });
+});
 // FAQ Accordion
 document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', () => {
@@ -328,7 +351,7 @@ const serviceViewData = {
 
 function updateServiceView(key) {
     const data = serviceViewData[key];
-    const view = document.getElementById('view-consulting'); //Reusing the same container structure
+    const view = document.getElementById('view-generic'); // Reusing the generic container structure
     if (!data || !view) return;
 
     view.querySelector('h1').textContent = data.title;
@@ -530,7 +553,19 @@ serviceTabs.forEach(tab => {
     tab.addEventListener('click', () => {
         serviceTabs.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
-        updateServiceView(tab.dataset.service);
+
+        const serviceKey = tab.dataset.service;
+        const consultingView = document.getElementById('view-consulting');
+        const genericView = document.getElementById('view-generic');
+
+        if (serviceKey === 'consulting') {
+            consultingView.classList.add('active');
+            genericView.classList.remove('active');
+        } else {
+            consultingView.classList.remove('active');
+            genericView.classList.add('active');
+            updateServiceView(serviceKey);
+        }
     });
 });
 
@@ -698,12 +733,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 targetTab.click();
             } else {
                 // Fallback to default if param exists but tab not found
-                updateServiceView('consulting');
+                // Default is consulting, which is static, so no updateServiceView needed
             }
         } else {
             // No param or default landing: update view for currently active tab
             const activeTab = document.querySelector('.service-tab.active') || document.querySelector('.service-tab');
-            if (activeTab) {
+            if (activeTab && activeTab.dataset.service !== 'consulting') {
                 updateServiceView(activeTab.dataset.service);
             }
         }
