@@ -556,13 +556,19 @@ serviceTabs.forEach(tab => {
 
         const serviceKey = tab.dataset.service;
         const consultingView = document.getElementById('view-consulting');
+        const trainingView = document.getElementById('view-training');
         const genericView = document.getElementById('view-generic');
+
+        // Reset all views
+        consultingView.classList.remove('active');
+        if (trainingView) trainingView.classList.remove('active');
+        genericView.classList.remove('active');
 
         if (serviceKey === 'consulting') {
             consultingView.classList.add('active');
-            genericView.classList.remove('active');
+        } else if (serviceKey === 'training' && trainingView) {
+            trainingView.classList.add('active');
         } else {
-            consultingView.classList.remove('active');
             genericView.classList.add('active');
             updateServiceView(serviceKey);
         }
